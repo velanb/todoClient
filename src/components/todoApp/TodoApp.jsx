@@ -15,15 +15,6 @@ function TodoApp(props) {
 
   let { todoList } = todoAppState;
 
-  // let completedTodo = [];
-  // let inCompleteTodo = [];
-
-  // todoList.forEach(async (todo) => {
-  //   todo.isCompleted
-  //     ? await completedTodo.unshift(todo)
-  //     : await inCompleteTodo.unshift(todo);
-  // });
-
   return (
     <Container fluid>
       <Row>

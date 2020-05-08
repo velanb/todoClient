@@ -24,15 +24,13 @@ class App extends Component {
     };
   }
 
-  uri = "http://localhost:4000";
-
   componentWillMount() {
     this.fetchItems();
   }
 
   fetchItems() {
     axios
-      .get(`${this.uri}/api/todo/getTodos`)
+      .get(`${process.env.BACKEND_URL}/api/todo/getTodos`)
       .then((response) => {
         if (response.status === 200) {
           this.setState({
@@ -61,7 +59,7 @@ class App extends Component {
 
   handleDeleteButton(id) {
     axios
-      .delete(`${this.uri}/api/todo/deleteTodo/${id}`)
+      .delete(`${process.env.BACKEND_URL}/api/todo/deleteTodo/${id}`)
       .then((response) => {
         if (response.status === 201) {
           let objIndex = this.state.todoAppState.todoList.findIndex(
@@ -100,7 +98,7 @@ class App extends Component {
       isCompleted: true,
     };
     axios
-      .put(`${this.uri}/api/todo/updateTodo/${id}`, updateObj)
+      .put(`${process.env.BACKEND_URL}/api/todo/updateTodo/${id}`, updateObj)
       .then((response) => {
         if (response.status === 201) {
           let objIndex = this.state.todoAppState.todoList.findIndex(
